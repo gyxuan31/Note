@@ -1,28 +1,10 @@
-from collections import Counter
-class Solution(object):
-    def closeStrings(self, word1, word2):
-        """
-        :type word1: str
-        :type word2: str
-        :rtype: bool
-        """
-        w1 = list(word1)
-        w2 = list(word2)
-        w1.sort()
-        w2.sort()
-        n1 = len(w1)
-        n2 = len(w2)
-        if n1 != n2:
-            return False
-        c1 = Counter(w1)
-        c2 = Counter(w2)
-        s1 = sorted(c1.values())
-        s2 = sorted(c2.values())
-        print(type(s1))
-        if s1 is s2:
-            return True
-        return False
-
-sol = Solution()
-result = sol.closeStrings("cabbba", "aabbss")
-print(result)
+import sys
+for line in sys.stdin:
+    # 先读每组第一个数（每组的数据个数）
+    cnt = int(line)
+    print(cnt)
+    # 读下一行作为该组的具体内容
+    data_line = sys.stdin.readline().strip()
+    data = list(map(int, data_line.split()))
+    print(data_line)
+    print(data)
