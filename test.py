@@ -1,19 +1,15 @@
-import sys
-
-# for line in sys.stdin:
-#     a = line.split()
-#     print(int(a[0]) + int(a[1]))
-n = int(sys.stdin.readline())
-tmp = sys.stdin.readline().split()
-nums = [0]*n
-ans = [0]*n
-for i in range(n):
-    nums[i] = int(tmp[i])
-t = 0
-for i in range(n-1, -1, -1):
-    while (t in nums[i:n]) or t < max(nums[i:n]):
-        t += 1
-    ans[i] = t
-
-for i in range(n):
-    print(ans[i], end=' ')
+import numpy as np
+class Solution(object):
+    def equalPairs(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: int
+        """
+        tgrid = np.array(grid).T
+        tgrid = tgrid.tolist()
+        for i, column in enumerate(tgrid):
+            if column == grid[i]:
+                return i
+        return 0
+a = Solution()
+print(a.equalPairs([[3,1,2,2],[1,4,4,5],[2,4,2,2],[2,4,2,2]]))
